@@ -53,13 +53,13 @@ while webcam.isOpened():
             if prediction < 0.5: 
                 cv2.rectangle(frame, (startX,startY), (endX,endY), (0,0,255), 2)
                 Y = startY - 10 if startY - 10 > 10 else startY + 10
-                text = "No Mask ({:.2f}%)".format((1 - prediction[0][0])*100)
+                text = "2D ({:.2f}%)".format((1 - prediction[0][0])*100)
                 cv2.putText(frame, text, (startX,Y), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
                 
             else: 
                 cv2.rectangle(frame, (startX,startY), (endX,endY), (0,255,0), 2)
                 Y = startY - 10 if startY - 10 > 10 else startY + 10
-                text = "Mask ({:.2f}%)".format(prediction[0][0]*100)
+                text = "REAL ({:.2f}%)".format(prediction[0][0]*100)
                 cv2.putText(frame, text, (startX,Y), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
                 
     # display output
